@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block body %}
+<div class="container-lg">
+<form action='' method = "POST">
+<table class="table">
+    <tr>
+        <td>Título</td>
+        <td><input type = "text" name = "titulo" class="form-control" required /></td>
+    </tr>
+    <tr>
+        <td>Descrição</td>
+        <td>
+            <div class="form-group">
+            <textarea class="form-control" id="validationTextarea"  name = "descricao" required></textarea>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Prioridade</td>
+        <td>
+        <select name="prioridade" class="form-control" required>
+            <option value="alto">1 - Alto</option>
+            <option value="medio">2 - Média</option>
+            <option value="baixo">3 - Baixo</option>
+         </select>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td colspan="2">
+            <input type="submit" name="submit" value="Enviar" class="btn btn-success">
+        </td>
+        <td colspan="2">
+            <input type="submit" name="submit" value="Cancelar" class="btn btn-success">
+        </td>
+
+    </tr>
+</table>
+
+</form>
+
+
+</div>
+{% endblock %}
+
+

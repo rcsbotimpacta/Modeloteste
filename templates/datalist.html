@@ -1,0 +1,65 @@
+ {% extends 'base.html' %}
+{% include 'header.html' %}
+ 
+{% block title %} Home {% endblock %}
+ 
+{% block body %}
+
+
+
+    <div class="container">
+      <div class="row "></div>
+      <div class="row border">
+        <!-- <div class="col border"><h1 text-align="center" class="text-center">LISTA DE CHAMADOS</h1></div> -->
+        <div class="col border"> <a class="btn btn-warning" href="/criarchamado" role="button">Cadastrar</a></div>
+      </div>
+    </div>
+<!-- </tr> -->
+<div class="container">
+ <table class="table">
+     <thead style="background-color: rgb(86, 97, 243);color: aliceblue;">
+        <th>Nº Chamado</th>
+        <th>Titulo</th>
+        <th class="col9 fixed">Descricao</th>
+        <th>Prioridade</th>
+        <th>AÇÃO</th>
+    </thead>
+
+   <tbody>
+    {% for item in chamado %}
+    <tr
+    {% if loop.index %2==0 %}
+    style="background-color: rgba(219, 219, 219, 0.747);"
+    {% else %}
+    style="background-color: rgb(255, 255, 255);"
+    {% endif %}
+    >
+    <td>{{ loop.index }}</td>
+    <td>{{item.titulo}}</td>
+    <td>{{item.descricao}}</td>
+    <td>{{item.prioridade}}</td>
+    <td> <span class="glyphicon glyphicon-repeat" style="font-size: 24px;color:green;">
+       <a href="/{{item.id}}/editchamado"> <i class="fas fa-edit"></i></a> </span>
+        | <span style="font-size: 24px;color:#ee1616e7;">
+          <a href="/{{item.id}}/deletechamado"> <i class="fas fa-trash-alt"></i></a></span></td>
+    {% endfor %}
+   </tbody>
+ </table>
+
+</div>
+
+ <br>
+ <br>
+
+
+
+ 
+
+
+
+
+
+
+
+
+{% endblock %}
